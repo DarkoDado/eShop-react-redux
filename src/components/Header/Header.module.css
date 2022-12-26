@@ -1,0 +1,131 @@
+header {
+    background-color: var(--color-blue);
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+.header {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    background-color: var(--color-blue);
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    font-size: 20px;
+}
+nav ul li {
+    margin: 11px 0px;
+}
+nav ul li a{
+    margin: 0px 15px;
+    color: #fff;
+    text-decoration: none;
+} 
+nav ul li a:hover {
+    color: var(--color-orangered);
+}
+.header span h2 {
+    transition: .8s ease all;
+    padding: 10px 15px;
+}
+.header a {
+    text-decoration: none;
+}
+.header span h2 {
+    color: var(--color-orangered);
+}
+.header h2:hover {
+    background-color: var(--color-orangered);
+    color: white;
+}
+.active {
+    color: var(--color-orangered);
+    font-weight: bold;
+    font-size: 21px;
+}
+.cart a{
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    transition: .3s ease-in-out all;
+    text-decoration: none;
+    font-size: 20px;
+}
+.cart {
+    margin-top: 12px;
+}
+.cart a:hover {
+    color: var(--color-orangered);
+}
+.cart p {
+    position: absolute;
+    bottom: 1rem;
+    right: -1rem;
+    color: var(--color-orangered);
+}
+.mobMenu {
+    display: none;
+}
+nav span {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .header nav ul{
+        display: block;
+        position: absolute;
+        top: -150px;    
+    }
+    nav ul li {
+        margin: 20px 0;
+    }
+   
+    .showMenu ul{
+        background-color: var(--color-blue);
+        width: 100%;
+        display: block;
+    }
+    .menuWrapper ul{
+        background-color: var(--color-blue);
+        opacity: 0.9;
+        width: 100%;
+    }
+    .showMobMenu {
+        top: 150px;
+        left: 0;
+        transition: .4s ease-out all;
+        position: fixed;
+        width: 100%;
+        z-index: 2000;
+    }   
+    .hideMobMenu {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        transition: .5s ease-in all;  
+        width: 100%;
+        z-index: 2000;
+    }
+    nav > span {
+        display: block;
+        position: absolute;
+        bottom: 100px;
+        right: 35px;
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+    }
+    .mobMenu {
+        display: block;
+        cursor: pointer;
+        padding-top: 10px;
+    }
+}
+
+
+
+
+
