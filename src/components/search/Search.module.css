@@ -1,0 +1,13 @@
+.search {
+    margin: 0rem 10rem;
+}
+.search input[type="text"] {
+    padding: 5px ;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px;
+}
+.search input[type="text"]:focus {
+    outline: none;
+    background-color: #fff;
+}

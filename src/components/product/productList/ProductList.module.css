@@ -2,5 +2,42 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 850px;
+}
+.block {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 10px 0;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+
+.block {
+    display: block;
+    margin: 0 auto;
+}
+.sort > h4 {
+    color: gray;
+}
+.sortSelect {
+    padding: 5px;
+    outline: none;
+}
+select{
+    background-color: var(--color-gray);
+    font-size: 15px;
+}
+.grid {
+    margin-top: 20px;
+    margin-right: 10px;
+    color: var(--color-blue);
+    cursor: pointer;
+    transition: .3s ease-in-out all;
+}
+.grid:hover {
+    color: var(--color-orangered);
 }

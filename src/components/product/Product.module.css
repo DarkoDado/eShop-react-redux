@@ -1,8 +1,12 @@
 .product {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border: 2px solid blue;
 }
 .main {
-    width: 100%;
+    width: 77%;
+}
+aside {
+    width: 22%;
+    background-color: red;
 }
