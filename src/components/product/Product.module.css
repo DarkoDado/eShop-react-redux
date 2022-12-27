@@ -1,0 +1,8 @@
+.product {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid blue;
+}
+.main {
+    width: 100%;
+}

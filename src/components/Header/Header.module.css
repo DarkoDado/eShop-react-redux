@@ -10,6 +10,7 @@ header {
     position: fixed;
     width: 100%;
     background-color: var(--color-blue);
+    z-index: 1000000;
 }
 nav ul {
     display: flex;

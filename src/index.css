@@ -1,29 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,400&display=swap');
-
-:root {
-  --color-blue: #273A87;
-  --color-orangered: #FF3312;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-img {
-  vertical-align: bottom;
-}
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-.--flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+:root {
+  --color-blue: #273A87;
+  --color-orangered: #FF3312;
+  --color-gray: #E9EBF1;
 }
 body {
   margin: 0;
@@ -31,6 +16,41 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+img {
+  vertical-align: bottom;
+}
+.container {
+  max-width: 1050px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.btn {
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-blue);
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  width: 100%;
+  height: 2.5rem;
+  font-size: 16px;
+}
+.btn p {
+  transition: .3s ease-in-out all;
+}
+.btn:hover {
+  color: var(--color-orangered);
+}
+.btn:hover > p {
+  transform: scale(1.1);
+}
+.--flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
