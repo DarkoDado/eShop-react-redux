@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Search from "../../search/Search";
 import ProductCard from "../productCard/ProductCard";
 import styles from "./ProductList.module.css";
 import { BsFillGridFill } from "react-icons/bs";
 import { FaListAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { filter_search, selectFilteredProduct } from "../../../redux/slice/filterSortSlice";
+
 
 const ProductList = ({ products }) => {
   const [grid, setGrid] = useState(false)
+  const [search, setSearch] = useState("")
+
+   const filteredProducts = useSelector(selectFilteredProduct)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(filter_search({products, search}))  
+    console.log(products);
+  }, [search]) //products, dispatch 
+
   return (
     <div>
       <div className={styles.flex}>
@@ -15,7 +28,7 @@ const ProductList = ({ products }) => {
         <span className={styles.sort}>
           <h4>Search</h4>
 
-          <Search />
+          <Search value={search} onChange={(e) => setSearch(e.target.value)}/>
         </span>
         <span className={styles.sort}>
           <h4>Sort by:</h4>
@@ -28,15 +41,16 @@ const ProductList = ({ products }) => {
           </select>
         </span>
       </div>
+      
       <div className={grid ? `${styles.block} ` : `${styles.cards}`}>
-        {products.length === 0 ? (
+        {filteredProducts.length === 0 ? (
           <p>No products found...</p>
         ) : (
           <>
-            {products.map((product) => {
+            {filteredProducts.map((product) => {
               return (
                 <div key={product.id}>
-                  <ProductCard product={product} grid={grid}/>
+                  <ProductCard product={product} {...product} grid={grid}/>
                 </div>
               );
             })}

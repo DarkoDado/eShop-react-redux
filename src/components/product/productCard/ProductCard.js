@@ -1,12 +1,14 @@
 import React from 'react'
+
 import { Link } from 'react-router-dom'
-import Details from '../details/Details'
+
 import styles from "./ProductCard.module.css"
 
 
+const ProductCard = ({product, grid, id, category, description, image, price, title, rating}) => {
+  
 
-const ProductCard = ({product, grid}) => {
-  const {id, category, description, image, price, title, rating} = product
+  
   const shortenText = (text, n) => {
     if(text.length > n) {
       const shortenedText = text.substring(0, n).concat("...")
@@ -14,10 +16,12 @@ const ProductCard = ({product, grid}) => {
     }
     return text
   }
+  
 
   return (
 
     <section className={grid ? `${styles.card2}` : `${styles.card}`}>
+      
       <Link to={`/details/${id}`}>
       <h4>{shortenText(title, 22)}</h4>
       <div className={styles.img}>
