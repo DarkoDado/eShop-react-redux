@@ -1,0 +1,14 @@
+.cardDetails {
+    width: 70%;
+    position: relative;
+}
+.product-image {
+    display: flex;
+    margin: 20px;
+}
+.product-image p {
+    margin: 30px 0;
+}
+.product-image > img {
+    margin: 10px 40px;
+}

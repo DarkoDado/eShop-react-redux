@@ -2,5 +2,7 @@
     background-color: var(--color-blue);
     padding: 30px;
     color: #fff;
-    min-height: 100vh;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

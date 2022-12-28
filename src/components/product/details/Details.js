@@ -25,17 +25,30 @@ useEffect(() => {
  fetchProductDetails()
 },[id])
   return (
-    <div>
+    <div className="container">
       {isLoading ? (
         <img src={spinner} alt="loading..." />
       ) : (
+      
         <>
-        <p>{title}</p>
+        <div className={styles.cardDetails}>
+        <h2>{title}</h2>
+       
+        {/* <h3>Category : {category}</h3> */}
+        <div className={styles["product-image"]}>
+        <img src={image} alt="product" width={180}/>
+        
         <p>{description}</p>
-        <p>{category}</p>
-        <img src={image} alt="product" />
+        
+        </div>
+        
+        <button className="btn">Add To Cart</button>
+        </div>
+        
         </>
+        
       )} 
+      
     </div>
   );
 };
