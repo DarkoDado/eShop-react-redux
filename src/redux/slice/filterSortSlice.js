@@ -36,12 +36,17 @@ const filterSortSlice = createSlice({
         })
       }
       state.filteredProducts = sortedProducts
+    },
+    filter_category : (state, action ) => {
+      const {products, category } = action.payload
+      let filterCategory = products.filter(product => product.category === category)
+      state.filteredProducts = filterCategory
     }
   
   }
 });
 
-export const {filter_search, products_sort} = filterSortSlice.actions
+export const {filter_search, products_sort, filter_category} = filterSortSlice.actions
 
 
 export const selectFilteredProduct = (state) => state.filter.filteredProducts;

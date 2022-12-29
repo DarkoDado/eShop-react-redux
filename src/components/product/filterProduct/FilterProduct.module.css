@@ -1,0 +1,14 @@
+.btnCategory {
+    border: 0;
+    padding: 10px;
+    display: block;
+    width: 150px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: var(--color-blue);
+    color: white;
+}
+.btnCategory:hover {
+    background-color: var(--color-orangered);
+}

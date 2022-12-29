@@ -49,7 +49,7 @@ const Product = () => {
   return (
     <>
       <div className={`container ${styles.product}`}>
-        <aside>{isLoading ? null : <FilterProduct />}</aside>
+        <aside>{isLoading ? null : <FilterProduct products={products}/>}</aside>
         <main className={styles.main}>
           {isLoading ? (
             <img src={spinner} alt="Loading" style={{ width: "50px" }} />
