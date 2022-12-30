@@ -1,13 +1,13 @@
 .search {
-    margin: 0rem 10rem;
+    margin: 1.7rem 0rem;
 }
 .search input[type="text"] {
-    padding: 5px ;
+    padding: 0.5rem;
     font-size: 18px;
-    border-radius: 5px;
-    border: 1px;
+    border-radius: 6px;
+    border: 4px;
+    width: 190px;
 }
 .search input[type="text"]:focus {
-    outline: none;
     background-color: #fff;
 }

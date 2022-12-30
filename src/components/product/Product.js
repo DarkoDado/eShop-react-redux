@@ -9,6 +9,7 @@ import {
   store_products,
 } from "../../redux/slice/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Search from "../search/Search";
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
   // const [products, setProducts] = useState([]);
@@ -35,6 +36,7 @@ const Product = () => {
     const response = await axios
       .get("https://fakestoreapi.com/products")
       .catch((err) => {
+        console.log(err.message);
         setIsLoading(false);
       });
     setIsLoading(false);

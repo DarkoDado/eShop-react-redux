@@ -13,17 +13,10 @@ import {
 
 const ProductList = ({ products }) => {
   const [grid, setGrid] = useState(false);
-  const [search, setSearch] = useState("");
   const [sort, setSort] = useState("latest");
 
   const filteredProducts = useSelector(selectFilteredProduct);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(filter_search({ products, search }));
-    // console.log(products);
-
-  }, [search]); //products, dispatch
 
   useEffect(() => {
     dispatch(products_sort({products, sort}))
@@ -44,7 +37,7 @@ const ProductList = ({ products }) => {
         <span className={styles.sort}>
           <h4>Search</h4>
 
-          <Search value={search} onChange={(e) => setSearch(e.target.value)} />
+          {/* <Search value={search} onChange={(e) => setSearch(e.target.value)} /> */}
         </span>
         <span className={styles.sort}>
           <h4>Sort by:</h4>

@@ -5,10 +5,17 @@
     width: 150px;
     margin: 10px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 7px;
     background-color: var(--color-blue);
-    color: white;
+    color: #fff;
 }
+.btnCategoryClicked {
+    background-color: var(--color-orangered);
+}
+
 .btnCategory:hover {
     background-color: var(--color-orangered);
+}
+.search {
+    width: 50px;  
 }
