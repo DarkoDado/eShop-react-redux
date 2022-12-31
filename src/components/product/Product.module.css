@@ -1,10 +1,10 @@
 .product {
     display: flex;
     justify-content: space-between;
-    border: 2px solid blue;
+
 }
 .main {
-    width: 77%;
+    width: 76%;
 }
 aside {
     width: 23%;

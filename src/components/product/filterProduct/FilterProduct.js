@@ -16,21 +16,22 @@ const FilterProduct = () => {
     "All",
     ...new Set(products.map((product) => product.category)),
   ];
+
   const handleCategory = (cat) => {
     setCategory(cat);
     dispatch(filter_category({ products, category: cat }));
-    
   };
+
   const clearFilter = () => {
     setCategory("All")
   };
-
 
   useEffect(() => {
     dispatch(filter_search({ products, search }));
     // console.log(products);
 
-  }, [search]); //products, dispatch
+  }, [search, products, dispatch]); //products, dispatch
+
   return (
     <div>
          
@@ -38,7 +39,6 @@ const FilterProduct = () => {
      <div className={styles.search}>
      <Search value={search} onChange={(e) => setSearch(e.target.value)} /> 
      </div>
-        
         {categories.map((cat, index) => {
           return (
             <button

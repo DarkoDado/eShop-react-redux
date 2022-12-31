@@ -11,10 +11,11 @@
 }
 .flex {
     display: flex;
-    justify-content: center;
-    margin: 10px 0px;
+    justify-content: space-between;
+    margin: 10px 0;
+    margin-left: 20px;
+    margin-right: 35px;
 }
-
 
 .block {
     display: block;

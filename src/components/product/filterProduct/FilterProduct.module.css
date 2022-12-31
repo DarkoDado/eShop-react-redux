@@ -8,6 +8,7 @@
     border-radius: 7px;
     background-color: var(--color-blue);
     color: #fff;
+    transition: .1s ease-in all;
 }
 .btnCategoryClicked {
     background-color: var(--color-orangered);
@@ -17,5 +18,7 @@
     background-color: var(--color-orangered);
 }
 .search {
-    width: 50px;  
+    margin-right: 20px;  
+    height: 50px;
 }
+

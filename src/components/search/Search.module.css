@@ -5,9 +5,15 @@
     padding: 0.5rem;
     font-size: 18px;
     border-radius: 6px;
-    border: 4px;
     width: 190px;
+    transition: .2s ease-in-out all;
+
+    background-color: #fff;
+    outline: none;
+    border: none;
 }
 .search input[type="text"]:focus {
-    background-color: #fff;
+    border: 1px solid var(--color-blue);
+    width: 200px;
+    color: var(--color-blue);
 }

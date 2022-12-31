@@ -11,7 +11,10 @@ const Details = () => {
   const [isLoading, setIsLoading] = useState(true)
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { title, image, description, category} = product
+  const { title, image, description, price} = product
+  
+useEffect(() => {
+
   const fetchProductDetails = async () => {
     const response = await axios
       .get(`https://fakestoreapi.com/products/${id}`)
@@ -21,28 +24,35 @@ const Details = () => {
       dispatch(store_products(response.data))
       setIsLoading(false)
   };
-useEffect(() => {
+
  fetchProductDetails()
-},[id])
+},[id, dispatch])
+
   return (
     <div className="container">
       {isLoading ? (
+        <div className={styles.spinner}>
         <img src={spinner} alt="loading..." />
+        </div>
       ) : (
       
         <>
+         
         <div className={styles.cardDetails}>
-        <h2>{title}</h2>
+       
        
         {/* <h3>Category : {category}</h3> */}
         <div className={styles["product-image"]}>
         <img src={image} alt="product" width={180}/>
-        
+        </div>
+        <div className={styles.content}>
+        <h2>{title}</h2>
         <p>{description}</p>
         
-        </div>
+        <h3>${price}</h3>
         
-        <button className="btn">Add To Cart</button>
+        <button className="btn"><p>Add To Cart</p></button>
+        </div>
         </div>
         
         </>
