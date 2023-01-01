@@ -16,10 +16,10 @@ const ProductCard = ({product, grid, id, category, description, image, price, ti
     return text
   }
   
-  // const addToCart = (product) => {
-  //   dispatch(add_to_cart(product))
-  //   dispatch(total_quantity())
-  // }
+  const addToCart = (product) => {
+    dispatch(add_to_cart(product))
+    dispatch(total_quantity())
+  }
 
   return (
 
@@ -37,7 +37,7 @@ const ProductCard = ({product, grid, id, category, description, image, price, ti
       </p>
       <p><b>${price}</b></p>
       
-      <button className='btn' ><p>Add To Cart</p></button>
+      <button className='btn' onClick={() => addToCart(product)}><p>Add To Cart</p></button>
       </div>
     </section>
 

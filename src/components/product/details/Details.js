@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectProducts, store_products } from "../../../redux/slice/productsSlice";
 import styles from "./Details.module.css";
+import { add_to_cart, total_quantity } from "../../../redux/slice/cartSlice";
 
 const Details = () => {
   const product = useSelector(selectProducts)
@@ -27,6 +28,11 @@ useEffect(() => {
 
  fetchProductDetails()
 },[id, dispatch])
+
+const addToCart = (product) => {
+  dispatch(add_to_cart(product))
+  dispatch(total_quantity())
+}
 
   return (
     <div className="container">
@@ -51,7 +57,7 @@ useEffect(() => {
         
         <h3>${price}</h3>
         
-        <button className="btn"><p>Add To Cart</p></button>
+        <button className="btn" onClick={() => addToCart(product)}><p>Add To Cart</p></button>
         </div>
         </div>
         

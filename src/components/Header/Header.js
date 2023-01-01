@@ -4,13 +4,14 @@ import { FiShoppingCart } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { SlClose } from "react-icons/sl";
 import styles from "./Header.module.css";
+import { useSelector } from "react-redux";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
 
-
+  const cartTotalQuantity = useSelector(state => state.cart.totalQuantity)
 
   const hideMenu = () => {
     setShowMenu(false);
@@ -63,7 +64,7 @@ const Header = () => {
             <FiShoppingCart size={26} />
           </span>
           <b>
-            <p>2</p>
+            <p>{cartTotalQuantity}</p>
           </b>
         </NavLink>
       </div>
