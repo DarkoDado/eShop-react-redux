@@ -1,10 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { add_to_cart, total_quantity } from '../../../redux/slice/cartSlice'
+import { add_to_cart, selectCartItems, total_quantity } from '../../../redux/slice/cartSlice'
 import styles from "./ProductCard.module.css"
 
 const ProductCard = ({product, grid, id, category, description, image, price, title, rating}) => {
+  const cartItems = useSelector(selectCartItems)
+  
 
   const dispatch = useDispatch()
 
@@ -15,6 +17,7 @@ const ProductCard = ({product, grid, id, category, description, image, price, ti
     }
     return text
   }
+  const alreadyInCart = cartItems.find(product => product.id === id)
   
   const addToCart = (product) => {
     dispatch(add_to_cart(product))
@@ -36,8 +39,14 @@ const ProductCard = ({product, grid, id, category, description, image, price, ti
       <p>{grid ? shortenText(description, 150) : shortenText(description, 90)}
       </p>
       <p><b>${price}</b></p>
+      {alreadyInCart ? (
+        <>
+        <button className={`btn ${styles.disabled}`}><p>Already in Cart</p></button>
+        </> 
+        ) : (
+        <button className='btn' onClick={() => addToCart(product)}><p>Add To Cart</p></button>
+      )}
       
-      <button className='btn' onClick={() => addToCart(product)}><p>Add To Cart</p></button>
       </div>
     </section>
 

@@ -56,3 +56,12 @@
 .card:hover {
     box-shadow: 1px 1px 5px var(--color-blue);
 }
+.disabled {
+
+    background-color: gray;
+    color: var(--color-orangered);
+}
+.disabled:hover {
+    font-weight: bold;
+    cursor: default;
+}

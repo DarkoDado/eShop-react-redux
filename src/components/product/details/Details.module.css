@@ -26,6 +26,35 @@
     padding: 10px;
     text-align: right;
 }
+.disabled {
+
+    background-color: gray;
+    color: var(--color-orangered);
+}
+.disabled:hover {
+    font-weight: bold;
+    cursor: default;
+}
+.increase-decrease {
+    padding: 10px 15px;
+    background-color: var(--color-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+.increase-decrease:hover {
+    background-color: var(--color-orangered);
+}
+.incDecDiv > p {
+    font-size: 20px;
+    color: var(--color-orangered);
+    margin-top: 10px;
+}
+.incDecDiv {
+    display: flex;
+    justify-content: space-between;
+}
 @media  screen and (max-width: 650px) {
     .cardDetails {
         width:90%;
