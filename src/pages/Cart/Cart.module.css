@@ -39,3 +39,9 @@ tbody td:last-of-type {
     justify-content: space-around;
     width: 70%;
 }
+.convert {
+    text-align: left;
+}
+.convert h4 {
+    margin: 10px 0;
+}
