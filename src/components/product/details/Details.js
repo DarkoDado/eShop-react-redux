@@ -74,14 +74,15 @@ const Details = () => {
                   <button className={`btn ${styles.disabled}`}>
                     <p>Already in Cart</p>
                   </button>
+                  <button className={styles["increase-decrease"]}>-</button>
+                  
+                  {currentProduct}
                   <button
                     onClick={() => addToCart(product)}
                     className={styles["increase-decrease"]}
                   >
                     +
                   </button>
-                  {currentProduct}
-                  <button className={styles["increase-decrease"]}>-</button>
                 </>
               ) : (
                 <button className="btn" onClick={() => addToCart(product)}>

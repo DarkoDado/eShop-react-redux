@@ -1,0 +1,23 @@
+.table {
+    margin: 30px auto;
+    width: 70%;
+    border: 2px solid black;
+}
+.table td {
+    border: 2px solid blue;
+}
+.tHead {
+    border-bottom: 2px solid black;
+}
+.increase-decrease {
+    padding: 10px 15px;
+    background-color: var(--color-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    transition: .3s ease-in-out all;
+}
+.increase-decrease:hover {
+    background-color: var(--color-orangered);
+}
