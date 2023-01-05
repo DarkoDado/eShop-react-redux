@@ -10,6 +10,7 @@ import {
 import styles from "./Details.module.css";
 import {
   add_to_cart,
+  decrease_cart,
   selectCartItems,
   total_quantity,
 } from "../../../redux/slice/cartSlice";
@@ -28,8 +29,8 @@ const Details = () => {
   const currentProduct = cartItems.map((item) => {
     if (item.id === id) {
       return <p>{item.cartQuantity}</p>;
-    }
-  }); // pojedinacni broj proizvoda
+    } // pojedinacni broj proizvoda
+  }); 
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -49,6 +50,10 @@ const Details = () => {
     dispatch(add_to_cart(product));
     dispatch(total_quantity());
   };
+  const decrease = (product) => {
+    dispatch(decrease_cart(product))
+    dispatch(total_quantity())
+  }
 
   return (
     <div className="container">
@@ -74,7 +79,7 @@ const Details = () => {
                   <button className={`btn ${styles.disabled}`}>
                     <p>Already in Cart</p>
                   </button>
-                  <button className={styles["increase-decrease"]}>-</button>
+                  <button onClick={() => decrease(product)} className={styles["increase-decrease"]}>-</button>
                   
                   {currentProduct}
                   <button
