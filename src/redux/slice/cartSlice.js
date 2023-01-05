@@ -52,7 +52,7 @@ const cartSlice = createSlice({
         const removedProduct = state.cartItems.filter(item => item.id !== action.payload.id)
         state.cartItems = removedProduct
       },
-    clear_cart: (state, action) => {
+    clear_cart: (state) => {
         state.cartItems = []
     }
   },

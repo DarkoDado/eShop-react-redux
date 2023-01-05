@@ -18,7 +18,6 @@ const Cart = () => {
     dispatch(remove_from_cart(item))
   }
   
-
   useEffect(() => {
     dispatch(total_quantity())
   }, [cartItems, dispatch])
