@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import spinner from "../../../assets/spinner.gif";
 import axios from "axios";
+import {v4} from "uuid"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
@@ -14,6 +15,7 @@ import {
   selectCartItems,
   total_quantity,
 } from "../../../redux/slice/cartSlice";
+
 
 const Details = () => {
   const product = useSelector(selectProducts);
@@ -31,6 +33,8 @@ const Details = () => {
       return <p>{item.cartQuantity}</p>;
     } // pojedinacni broj proizvoda
   }); 
+
+
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -56,6 +60,8 @@ const Details = () => {
   }
 
   return (
+    <>
+    
     <div className="container">
       {isLoading ? (
         <div className={styles.spinner}>
@@ -63,6 +69,7 @@ const Details = () => {
         </div>
       ) : (
         <>
+       
           <div className={styles.cardDetails}>
             {/* <h3>Category : {category}</h3> */}
             <div className={styles["product-image"]}>
@@ -99,7 +106,7 @@ const Details = () => {
           </div>
         </>
       )}
-    </div>
+    </div></>
   );
 };
 

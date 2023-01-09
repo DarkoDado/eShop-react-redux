@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
 const initialState = {
   cartItems: [],
   totalQuantity: 0,
@@ -17,10 +17,17 @@ const cartSlice = createSlice({
       if (indexOfProduct >= 0) {
         // proizvod vec postoji u korpi
         state.cartItems[indexOfProduct].cartQuantity += 1;
+        toast.info(`${action.payload.title} increased by one!`, {
+          position: "bottom-right",
+          autoClose:2000
+          });
       } else {
         // dodavanje proizvoda u korpu
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
+        toast.success(`${action.payload.title} added to Cart.`, {
+          position: "bottom-right",
+          });
       }
     },
     decrease_cart: (state, action) => {
@@ -29,11 +36,18 @@ const cartSlice = createSlice({
       );
       if (state.cartItems[indexOfProduct].cartQuantity > 1) {
         state.cartItems[indexOfProduct].cartQuantity -= 1;
+        toast.info(`${action.payload.title} decreased by one!`, {
+          position: "bottom-right",
+          autoClose:2000
+          });
       } else if (state.cartItems[indexOfProduct].cartQuantity === 1) {
         const filteredProduct = state.cartItems.filter(
           (product) => product.id !== action.payload.id
         );
         state.cartItems = filteredProduct;
+        toast.success(`${action.payload.title} removed from Cart.`, {
+          position: "bottom-right",
+          });
       }
     },
     total_quantity: (state) => {
@@ -53,9 +67,15 @@ const cartSlice = createSlice({
         (item) => item.id !== action.payload.id
       );
       state.cartItems = removedProduct;
+      toast.success(`${action.payload.title} removed from Cart.`, {
+        position: "bottom-right",
+        });
     },
     clear_cart: (state) => {
       state.cartItems = [];
+      toast.info(`Cart cleared!`, {
+        position: "bottom-left",
+      });
     },
     cart_subtotal: (state, action) => {
       const array = [];
