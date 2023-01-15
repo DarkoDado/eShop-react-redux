@@ -15,8 +15,8 @@ const FilterProduct = () => {
   const [price, setPrice] = useState(1000);
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
-  const minPrice = useSelector((state) => state.products.minPrice);
-  const maxPrice = useSelector((state) => state.products.maxPrice);
+  const minPrice = useSelector((state) => state.filter.minPrice);
+  const maxPrice = useSelector((state) => state.filter.maxPrice);
 
   const categories = [
     "All",

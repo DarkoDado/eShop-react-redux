@@ -9,7 +9,8 @@ import {
   store_products,
 } from "../../redux/slice/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { price_range } from "../../redux/slice/productsSlice";
+import { price_range } from "../../redux/slice/filterSortSlice";
+
 
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,15 +47,12 @@ const Product = () => {
         });
       setIsLoading(false);
       dispatch(store_products(response.data));
+      dispatch(price_range({products: response.data}))
       // setProducts(response.data);
     };
 
       fetchingProducts()
   }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(price_range({products}))
-  }, [dispatch, products])
 
   return (
     <>

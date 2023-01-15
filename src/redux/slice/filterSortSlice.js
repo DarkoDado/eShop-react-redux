@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   filteredProducts: [],
-
+  minPrice: null,
+  maxPrice: null,
 };
 
 const filterSortSlice = createSlice({
@@ -55,12 +56,26 @@ const filterSortSlice = createSlice({
       let filteredP = []
       filteredP = products.filter(product => product.price <= price)
       state.filteredProducts = filteredP
-    }
+    },
+    price_range: (state, action) => {
+      const { products } = action.payload;
+      const array = [];
+      products.map((product) => {
+        const price = product.price;
+        return array.push(price);
+      });
+      const max = Math.max(...array);
+      const min = Math.min(...array);
+  
+      state.minPrice = min;
+      state.maxPrice = max;
+    },
+
   },
 
 });
 
-export const { filter_search, products_sort, filter_category, filter_by_price } =
+export const { filter_search, products_sort, filter_category, filter_by_price, price_range } =
   filterSortSlice.actions;
 
 export const selectFilteredProduct = (state) => state.filter.filteredProducts;
