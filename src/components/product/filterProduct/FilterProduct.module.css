@@ -21,4 +21,13 @@
     margin-right: 20px;  
     height: 50px;
 }
+.minMaxPrice {
+    align-items: center;
+    margin-right: 55px;
+    margin-top: 20px;
+}
+.minMaxPrice > h4,
+.minMaxPrice > p {
+    margin-bottom: 10px;
+}
 
