@@ -16,12 +16,11 @@ import styles from "./Cart.module.css";
 import { FiDelete } from "react-icons/fi";
 
 const Cart = () => {
-
-  const [convert, setConvert] = useState("usd")
+  const [convert, setConvert] = useState("usd");
 
   const cartItems = useSelector(selectCartItems);
-  const cartTotalAmount = useSelector(selectCartAmount)
-  const totalQuantity = useSelector(cartTotalQuantity)
+  const cartTotalAmount = useSelector(selectCartAmount);
+  const totalQuantity = useSelector(cartTotalQuantity);
   const dispatch = useDispatch();
 
   const addToCart = (item) => {
@@ -36,23 +35,24 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(total_quantity());
-    dispatch(cart_subtotal())
-    dispatch(currency_converter({convert, cartTotalAmount}))
-  }, [cartItems, dispatch, convert]);
+    dispatch(cart_subtotal());
+    dispatch(currency_converter({ convert, cartTotalAmount }));
+  }, [cartItems, dispatch, convert, cartTotalAmount]);
 
   const swichConvert = () => {
-    switch(convert) {
-    case "usd" : 
-    return <>$</>
-    case "eur" : 
-    return <>EUR</>
-    case "rsd" :
-      return <>RSD</>
-    case "bam" :
-      return <>BAM</>
-    default: <></>
-  }
-  }
+    switch (convert) {
+      case "usd":
+        return <>$</>;
+      case "eur":
+        return <>EUR</>;
+      case "rsd":
+        return <>RSD</>;
+      case "bam":
+        return <>BAM</>;
+      default:
+        <></>;
+    }
+  };
 
   return (
     <div>
@@ -74,7 +74,7 @@ const Cart = () => {
 
             <tbody>
               {cartItems.map((item, index) => {
-                const { id, image, title, price, cartQuantity } = item;
+                const {  image, title, price, cartQuantity } = item;
                 return (
                   <>
                     <tr key={index}>
@@ -85,7 +85,7 @@ const Cart = () => {
                         <img
                           src={image}
                           style={{ width: "50px", height: "60px" }}
-                          alt="product image"
+                          alt="product"
                         />
                       </td>
                       <td>{price}$</td>
@@ -128,22 +128,27 @@ const Cart = () => {
                   Clear All
                 </button>
               </span>
+              <div  className={styles.totalPrice}>
               <span>
                 <h4>Cart items: {totalQuantity}</h4>
-                <h3>Total price: <b>{cartTotalAmount.toFixed(2)}</b>{swichConvert()}
-              </h3>
+                <h3>
+                  Total price: <b>{cartTotalAmount.toFixed(2)}</b>
+                  {swichConvert()}
+                </h3>
               </span>
               <span className={styles.convert}>
-              <h4>Convert total price</h4>
-                <select value={convert}
-                onChange={(e) => setConvert(e.target.value)}>
-                  
+                <h4>Convert total price</h4>
+                <select
+                  value={convert}
+                  onChange={(e) => setConvert(e.target.value)}
+                >
                   <option value="usd">USD</option>
                   <option value="eur">EUR</option>
                   <option value="rsd">RSD</option>
                   <option value="bam">BAM</option>
                 </select>
               </span>
+              </div>
             </div>
           </div>
         </>

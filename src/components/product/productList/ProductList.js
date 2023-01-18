@@ -8,11 +8,12 @@ import {
   products_sort,
   selectFilteredProduct,
 } from "../../../redux/slice/filterSortSlice";
+import { selectProducts } from "../../../redux/slice/productsSlice";
 
-const ProductList = ({ products }) => {
+const ProductList = () => {
   const [grid, setGrid] = useState(false);
   const [sort, setSort] = useState("latest");
-
+  const products = useSelector(selectProducts)
   const filteredProducts = useSelector(selectFilteredProduct);
   const dispatch = useDispatch();
 

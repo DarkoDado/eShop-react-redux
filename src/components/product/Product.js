@@ -11,7 +11,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { price_range } from "../../redux/slice/filterSortSlice";
 
-
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
   // const [products, setProducts] = useState([]);
@@ -34,10 +33,7 @@ const Product = () => {
   //       dispatch(store_products())
   //   };
 
-
-
   useEffect(() => {
-
     const fetchingProducts = async () => {
       const response = await axios
         .get("https://fakestoreapi.com/products")
@@ -47,25 +43,29 @@ const Product = () => {
         });
       setIsLoading(false);
       dispatch(store_products(response.data));
-      dispatch(price_range({products: response.data}))
+      dispatch(price_range({ products: response.data }));
       // setProducts(response.data);
     };
 
-      fetchingProducts()
+    fetchingProducts();
   }, [dispatch]);
 
   return (
     <>
-      <div className={`container ${styles.product}`}>
-        <aside>{isLoading ? null : <FilterProduct products={products}/>}</aside>
-        <main className={styles.main}>
-          {isLoading ? (
-            <img src={spinner} alt="Loading" style={{ width: "80px" }} />
-          ) : (
-            <ProductList products={products} />
-          )}
-        </main>
-      </div>
+      {isLoading ? (
+        <div className={styles.spinner}>
+          <img src={spinner} alt="Loading" />
+        </div>
+      ) : (
+        <div className={`container ${styles.product}`}>
+          <aside>
+            {isLoading ? null : <FilterProduct products={products} />}
+          </aside>
+          <main className={styles.main}>
+            <ProductList />
+          </main>
+        </div>
+      )}
     </>
   );
 };

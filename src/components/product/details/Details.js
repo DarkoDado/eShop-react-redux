@@ -15,7 +15,6 @@ import {
   total_quantity,
 } from "../../../redux/slice/cartSlice";
 
-
 const Details = () => {
   const product = useSelector(selectProducts);
   const cartItems = useSelector(selectCartItems);
@@ -30,82 +29,88 @@ const Details = () => {
   const currentProduct = cartItems.map((item) => {
     if (item.id === id) {
       return <p>{item.cartQuantity}</p>;
-    } // pojedinacni broj proizvoda
-  }); 
-
-
+    }
+    return null; // pojedinacni broj proizvoda
+  });
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       const response = await axios
+
         .get(`https://fakestoreapi.com/products/${ID}`)
+
         .catch((err) => {
           console.log(("err", err.message));
         });
-      dispatch(store_products(response.data));
+
       setIsLoading(false);
+      dispatch(store_products(response.data));
     };
 
     fetchProductDetails();
-  }, [id, dispatch]);
+  }, [ID, dispatch]);
 
   const addToCart = (product) => {
     dispatch(add_to_cart(product));
     dispatch(total_quantity());
   };
   const decrease = (product) => {
-    dispatch(decrease_cart(product))
-    dispatch(total_quantity())
-  }
+    dispatch(decrease_cart(product));
+    dispatch(total_quantity());
+  };
 
   return (
     <>
-    
-    <div className="container">
-      {isLoading ? (
-        <div className={styles.spinner}>
-          <img src={spinner} alt="loading..." />
-        </div>
-      ) : (
-        <>
-       
-          <div className={styles.cardDetails}>
-            {/* <h3>Category : {category}</h3> */}
-            <div className={styles["product-image"]}>
-              <img src={image} alt="product" width={180} />
-            </div>
-            <div className={styles.content}>
-              <h2>{title}</h2>
-              <p>{description}</p>
+      <div className="container">
+        {isLoading ? (
+          <div className={styles.spinner}>
+            <img src={spinner} alt="loading..." />
+          </div>
+        ) : (
+          <>
+            <div className={styles.cardDetails}>
+              {/* <h3>Category : {category}</h3> */}
+              <div className={styles["product-image"]}>
+                <img src={image} alt="product" width={180} />
+              </div>
+              <div className={styles.content} key={id}>
+                <h2>{title}</h2>
+                <p>{description}</p>
 
-              <h3>${price}</h3>
-              <div className={styles.incDecDiv}>
-              {alreadyInCart ? (
-                <>
-                  <button className={`btn ${styles.disabled}`}>
-                    <p>Already in Cart</p>
-                  </button>
-                  <button onClick={() => decrease(product)} className={styles["increase-decrease"]}>-</button>
-                  
-                  {currentProduct}
-                  <button
-                    onClick={() => addToCart(product)}
-                    className={styles["increase-decrease"]}
-                  >
-                    +
-                  </button>
-                </>
-              ) : (
-                <button className="btn" onClick={() => addToCart(product)}>
-                  <p>Add To Cart</p>
-                </button>
-              )}
+                <h3>${price}</h3>
+                <div className={styles.incDecDiv}>
+                  {alreadyInCart ? (
+                    <>
+                      <button className={`btn ${styles.disabled}`}>
+                        <p>Already in Cart</p>
+                      </button>
+                      <button
+                        onClick={() => decrease(product)}
+                        className={styles["increase-decrease"]}
+                      >
+                        -
+                      </button>
+
+                      {currentProduct}
+                      <button
+                        onClick={() => addToCart(product)}
+                        className={styles["increase-decrease"]}
+                      >
+                        +
+                      </button>
+                    </>
+                  ) : (
+                    <button className="btn" onClick={() => addToCart(product)}>
+                      <p>Add To Cart</p>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
-    </div></>
+          </>
+        )}
+      </div>
+    </>
   );
 };
 
