@@ -13,6 +13,7 @@ import { price_range } from "../../redux/slice/filterSortSlice";
 
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
+
   // const [products, setProducts] = useState([]);
   const products = useSelector(selectProducts);
   const dispatch = useDispatch();

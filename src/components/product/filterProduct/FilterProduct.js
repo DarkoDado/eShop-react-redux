@@ -38,7 +38,7 @@ const FilterProduct = () => {
   }, [dispatch, products, price]);
 
   return (
-    <div>
+    
       <div>
         <div className={styles.search}>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
@@ -71,7 +71,7 @@ const FilterProduct = () => {
           />
         </div>
       </div>
-    </div>
+  
   );
 };
 

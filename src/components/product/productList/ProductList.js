@@ -21,7 +21,7 @@ const ProductList = () => {
     dispatch(products_sort({ products, sort }));
   }, [dispatch, products, sort]);
   return (
-    <div>
+    <div >
       <div className={styles.flex}>
        <div> 
         <BsFillGridFill

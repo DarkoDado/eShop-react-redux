@@ -58,14 +58,9 @@ img {
   transform: scale(1.1);
 }
 
-.--flex-between {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media only screen and (max-width: 768px) {
+  .container {
+      max-width: 550px;
+      margin: 20px auto;
+  }
 }

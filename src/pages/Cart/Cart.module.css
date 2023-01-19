@@ -1,13 +1,15 @@
 .table {
     margin: 40px auto;
-    width: 75%;
+    width: 90%;
     border-top: 2px solid var(--color-orangered);
 }
-
+.table2 {
+    margin: 40px auto;
+    width: 90%;
+}
 .table td {
     padding: 5px;
 }
-
 .increase-decrease {
     padding: 10px;
     background-color: var(--color-blue);
@@ -45,7 +47,7 @@ tbody td:last-of-type {
 .checkoutDetails {
     display: flex;
     justify-content: space-between;
-
+    width: 95%;
 }
 
 .convert h4 {
@@ -64,4 +66,13 @@ tbody td:last-of-type {
 }
 .totalPrice:hover {
     box-shadow: 0 0 15px var(--color-blue);
+}
+.cartOkvir {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .table2 {
+        display: block;
+    }
 }

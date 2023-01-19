@@ -55,9 +55,11 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className={styles.cartOkvir}>
       {cartItems.length === 0 ? (
+        <span className={styles.cartH2}>
         <h2>Your cart is empty...</h2>
+        </span>
       ) : (
         <>
           <table className={styles.table}>
@@ -118,7 +120,7 @@ const Cart = () => {
               })}
             </tbody>
           </table>
-          <div className="container">
+          <div className={styles.table2}>
             <div className={styles.checkoutDetails}>
               <span>
                 <button

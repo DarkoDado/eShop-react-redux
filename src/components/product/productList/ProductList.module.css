@@ -31,7 +31,6 @@ select{
     padding: 5px;
     border-radius: 7px;
 }
-
 .grid {
     margin-top: 20px;
     margin-right: 10px;
@@ -41,4 +40,13 @@ select{
 }
 .grid:hover {
     color: var(--color-orangered);
+}
+@media only screen and (max-width: 768px) {
+    .grid {
+        display: none;
+    }
+    .flex {
+        margin: 7px 2px;
+    }
+
 }
