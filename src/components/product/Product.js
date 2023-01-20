@@ -13,7 +13,7 @@ import { price_range } from "../../redux/slice/filterSortSlice";
 
 const Product = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  const [filterBar, setFilterBar] = useState(false);
   // const [products, setProducts] = useState([]);
   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
@@ -42,6 +42,7 @@ const Product = () => {
           console.log(err.message);
           setIsLoading(false);
         });
+        console.log(response.data);
       setIsLoading(false);
       dispatch(store_products(response.data));
       dispatch(price_range({ products: response.data }));
@@ -51,6 +52,10 @@ const Product = () => {
     fetchingProducts();
   }, [dispatch]);
 
+  const handleFilterBar = () => {
+    setFilterBar(!filterBar)
+  }
+
   return (
     <>
       {isLoading ? (
@@ -59,11 +64,11 @@ const Product = () => {
         </div>
       ) : (
         <div className={`container ${styles.product}`}>
-          <aside>
-            {isLoading ? null : <FilterProduct products={products} />}
-          </aside>
+          
+            {isLoading ? null : <FilterProduct filterBar={filterBar} products={products} closeFilterBar={handleFilterBar} />}
+          
           <main className={styles.main}>
-            <ProductList />
+            <ProductList handleFilterBar={handleFilterBar}/>
           </main>
         </div>
       )}

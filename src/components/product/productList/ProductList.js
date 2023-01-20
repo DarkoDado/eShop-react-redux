@@ -10,7 +10,7 @@ import {
 } from "../../../redux/slice/filterSortSlice";
 import { selectProducts } from "../../../redux/slice/productsSlice";
 
-const ProductList = () => {
+const ProductList = ({handleFilterBar}) => {
   const [grid, setGrid] = useState(false);
   const [sort, setSort] = useState("latest");
   const products = useSelector(selectProducts)
@@ -36,6 +36,7 @@ const ProductList = () => {
         />
   </div>
         <span className={styles.sort}>
+          <h1 onClick={handleFilterBar}>Click</h1>
           <h4>Sort by:</h4>
           <select
             value={sort}

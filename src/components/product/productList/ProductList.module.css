@@ -45,8 +45,5 @@ select{
     .grid {
         display: none;
     }
-    .flex {
-        margin: 7px 2px;
-    }
 
 }

@@ -10,6 +10,7 @@
     color: #fff;
     transition: .1s ease-in all;
 }
+
 .btnCategoryClicked {
     background-color: var(--color-orangered);
 }
@@ -17,19 +18,69 @@
 .btnCategory:hover {
     background-color: var(--color-orangered);
 }
+.filterBar > span {
+    display: none;
+}
 .search {
-    margin-right: 20px;  
+    margin-right: 20px;
     height: 50px;
 }
+
 .minMaxPrice {
     align-items: center;
     margin-right: 55px;
     margin-top: 20px;
 }
-.minMaxPrice > h4,
-.minMaxPrice > p {
+
+.minMaxPrice>h4,
+.minMaxPrice>p {
     margin-bottom: 10px;
 }
 
+@media screen and (max-width: 768px) {
 
+    .filterBar,
+    .filterBarActive {
+        background-color: var(--color-blue);
+        padding: 15px;
+        width: 220px;
+        color: #fff;
+    }
 
+    .filterBar {
+        transform: translate(-232%);
+        transition: .4s ease-in-out all;
+        position: absolute;
+        z-index: 999;
+        top: 45px;
+        left: 0px;
+    }
+
+    .filterBarActive {
+        transform: translate(0%);
+        transition: .3s ease-in all;
+        position: fixed;
+        top: 45px;
+        left: 0px;
+        z-index: 999;
+    }
+    .btnCategory {
+        background-color: var(--color-gray);
+        color: var(--color-orangered);
+        font-weight: bold;
+    }
+    .btnCategoryClicked {
+        background-color: var(--color-orangered);
+        color: #fff;
+        transform: scale(1.1);
+    }
+    .minMaxPrice {
+        margin-left: 20px;
+    }
+    .filterBarActive > span, .filterBar > span {
+        position: relative;
+        left: 70px;
+        font-size: 35px;
+    }
+
+}
