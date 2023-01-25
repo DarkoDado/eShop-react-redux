@@ -40,12 +40,13 @@ const FilterProduct = ({filterBar, closeFilterBar}) => {
   }, [dispatch, products, price]);
 
   return (
+    <div className={styles.fixed}>
     <div
       className={
         filterBar ? `${styles.filterBarActive}` : `${styles.filterBar}`
       }
     >
-      <span onClick={closeFilterBar}>
+      <span onClick={closeFilterBar} className={styles.closeFilterBar}>
       <SlClose />
       </span>
       <div className={styles.search}>
@@ -78,6 +79,7 @@ const FilterProduct = ({filterBar, closeFilterBar}) => {
           max={maxPrice}
         />
       </div>
+    </div>
     </div>
   );
 };

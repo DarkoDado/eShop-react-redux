@@ -18,8 +18,18 @@
 .btnCategory:hover {
     background-color: var(--color-orangered);
 }
-.filterBar > span {
+
+.filterBar>span {
     display: none;
+}
+
+.fixed {
+    position: relative;
+}
+.filterBar {
+    position:fixed;
+    top: 52px;
+    width:220px;
 }
 .search {
     margin-right: 20px;
@@ -37,6 +47,10 @@
     margin-bottom: 10px;
 }
 
+.closeFilterBar {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
 
     .filterBar,
@@ -50,11 +64,18 @@
     .filterBar {
         transform: translate(-232%);
         transition: .4s ease-in-out all;
-        position: absolute;
         z-index: 999;
-        top: 45px;
+        top: 50px;
         left: 0px;
     }
+    .filterBar .closeFilterBar, .filterBarActive .closeFilterBar {
+        display: block;
+        cursor: pointer;
+    }
+
+
+
+    
 
     .filterBarActive {
         transform: translate(0%);
@@ -63,21 +84,27 @@
         top: 45px;
         left: 0px;
         z-index: 999;
+
     }
+
     .btnCategory {
         background-color: var(--color-gray);
         color: var(--color-orangered);
         font-weight: bold;
     }
+
     .btnCategoryClicked {
         background-color: var(--color-orangered);
         color: #fff;
         transform: scale(1.1);
     }
+
     .minMaxPrice {
         margin-left: 20px;
     }
-    .filterBarActive > span, .filterBar > span {
+
+    .filterBarActive>span,
+    .filterBar>span {
         position: relative;
         left: 70px;
         font-size: 35px;

@@ -35,8 +35,11 @@ const ProductList = ({handleFilterBar}) => {
           onClick={() => setGrid(true)}
         />
   </div>
+  <div className={styles.flex}>
+    <div>
+  <button onClick={handleFilterBar}>Filters</button>
+  </div>
         <span className={styles.sort}>
-          <h1 onClick={handleFilterBar}>Click</h1>
           <h4>Sort by:</h4>
           <select
             value={sort}
@@ -51,7 +54,7 @@ const ProductList = ({handleFilterBar}) => {
           </select>
         </span>
       </div>
-
+      </div>
       <div className={grid ? `${styles.block} ` : `${styles.cards}`}>
         {filteredProducts.length === 0 ? (
           <h3>No products found...</h3>
