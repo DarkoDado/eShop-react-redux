@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Slide} from "react-toastify"
+import { Products } from "./pages/products/Products";
 function App() {
   return (
     <div className="App">
@@ -17,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
 
           <Route path="/details/:ID" element={<Details />} />

@@ -61,8 +61,8 @@ const Cart = () => {
         <h2>Your cart is empty...</h2>
         </span>
       ) : (
-        <>
-          <table className={styles.table}>
+        <div>
+          <table className={styles.table} >
             <thead className={styles.tHead}>
               <tr className={styles.tableRow}>
                 <th>S/N</th>
@@ -153,7 +153,7 @@ const Cart = () => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

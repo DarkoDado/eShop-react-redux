@@ -61,7 +61,7 @@ const Details = () => {
 
   return (
     <>
-      <div className="container">
+      <div>
         {isLoading ? (
           <div className={styles.spinner}>
             <img src={spinner} alt="loading..." />
