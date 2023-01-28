@@ -1,0 +1,16 @@
+.notFound {
+    margin: 30px 0;
+}
+.notFound h1, .notFound p {
+    margin: 20px;
+}
+.notFound button {
+    border: none;
+    background-color: var(--color-blue);
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.notFound button:hover {
+    background-color: var(--color-orangered);
+}
